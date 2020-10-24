@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Gap from 'src/ui/components/Gap'
 
-import { populateProfile } from 'src/store/actions/users'
+import { acPopulateProfile } from 'src/store/actions/users'
 
 const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch()
@@ -21,9 +21,11 @@ const HomeScreen = ({ navigation }) => {
       <Button
         onPress={() => {
           if (!users) {
-            dispatch(populateProfile({ name: 'Awank', phone: '628994111129' }))
+            dispatch(
+              acPopulateProfile({ name: 'Awank', phone: '628994111129' }),
+            )
           } else {
-            dispatch(populateProfile(null))
+            dispatch(acPopulateProfile(null))
           }
         }}
         title={!users ? 'Set Data User' : 'Revoke Data User'}
